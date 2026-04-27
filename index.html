@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediConnect - Emergency Blood Finder</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="header-content">
+                <h1>MediConnect 🏥</h1>
+                <span class="sos-tag">SOS</span>
+            </div>
+        </header>
+
+        <main id="view-port">
+            <section id="home-view" class="view">
+                <div class="card">
+                    <h3>Find Blood Donors</h3>
+                    <select id="bloodType">
+                        <option value="O+">O Positive (O+)</option>
+                        <option value="A+">A Positive (A+)</option>
+                        <option value="B+">B Positive (B+)</option>
+                        <option value="AB+">AB Positive (AB+)</option>
+                    </select>
+                    <button onclick="findDonors()" class="btn-primary">Search Database</button>
+                </div>
+                <div id="resultsList" class="results-area">
+                    </div>
+            </section>
+
+            <section id="requests-view" class="view hidden">
+                <div class="card">
+                    <h3>Emergency Requests</h3>
+                    <div class="list-item">
+                        <strong>B+ Needed</strong> - Kandy Hospital <br>
+                        <small>10 mins ago • High Priority</small>
+                    </div>
+                </div>
+            </section>
+
+            <section id="register-view" class="view hidden">
+                <div class="card">
+                    <h3>Become a Donor</h3>
+                    <input type="text" id="regName" placeholder="Full Name">
+                    <select id="regBlood">
+                        <option value="O+">O+</option>
+                        <option value="A+">A+</option>
+                        <option value="B+">B+</option>
+                    </select>
+                    <button onclick="saveDonor()" class="btn-dark">Register Now</button>
+                </div>
+            </section>
+
+            <section id="profile-view" class="view hidden">
+                <div class="card profile-card">
+                    <div class="avatar">V</div>
+                    <h3>Bhashitha Viduranga</h3>
+                    <p>Status: Active Donor</p>
+                    <div class="badge">O+ Verified</div>
+                </div>
+            </section>
+        </main>
+
+        <nav class="bottom-nav">
+            <div class="nav-item active" onclick="navigate('home', this)"><i class="fa-solid fa-magnifying-glass"></i></div>
+            <div class="nav-item" onclick="navigate('requests', this)"><i class="fa-solid fa-bell"></i></div>
+            <div class="nav-item" onclick="navigate('register', this)"><i class="fa-solid fa-plus-circle"></i></div>
+            <div class="nav-item" onclick="navigate('profile', this)"><i class="fa-solid fa-id-card"></i></div>
+        </nav>
+    </div>
+
+    <div id="toast" class="toast hidden"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
